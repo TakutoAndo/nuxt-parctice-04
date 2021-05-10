@@ -1,4 +1,6 @@
 # nuxt-practice-04
+nuxt.js ビギナーズガイド　chapter4
+
 
 ## Build Setup
 
