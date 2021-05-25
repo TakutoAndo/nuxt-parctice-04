@@ -34,5 +34,26 @@ export const actions = {
             putData
         ])
         commit('addPost', { post })
-    }
+    },
+
+    async fetchPosts({ commit }){
+        const posts = await this.$axios.$get('/posts.json')
+        commit('clearPosts')
+        //posts オブジェクトを一度展開して逆順に、その後forEachで要素をルーブで取得
+        Object.entries(posts)
+        .reverse()
+        .forEach(([id, content]) =>
+            commit('addPost', {
+                post: {
+                    id,
+                    ...content
+                }
+            })
+        )
+    },
+
+    async fetchPost({ commit }, { id }){
+        const post = await $axios.$get('/posts/${id}.json')
+        commit('addPost', {post: {...post, id }})
+    },
 }
