@@ -1,4 +1,5 @@
 export default {
+  mode: 'universal',
   srcDir: 'app',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
